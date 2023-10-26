@@ -8,6 +8,11 @@ fn main() {
     println!("before change value {}", num_mutable);
 
     num_mutable = 2;
-
     println!("after change value {}", num_mutable);
+
+
+    // you can declare constant too
+    const TEST: i32 = 12;
+
+    println!("my constant {}", TEST);
 }
