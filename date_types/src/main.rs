@@ -30,8 +30,25 @@ fn main() {
     }
 
     // vector like list in java
-    let mut nums = vec![1, 2, 3];
-    nums.push(4);
-    nums.reverse();
+    let mut nums = vec![1, 2, 3, 4, 5, 6];
+    nums.push(7);
     println!("vector {:?}", nums);
+
+    // A slice is a kind of reference, so it does not have ownership.
+    let slic: &[i32] = &nums[1..5];
+    println!("slice {:?}", slic);
+
+    let hello = String::from("hello world");
+    let word = first_word(&hello);
+    println!("word {}", word);
+}
+
+fn first_word(s: &String) -> usize {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+    s.len()
 }
