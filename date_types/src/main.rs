@@ -50,6 +50,7 @@ fn main() {
     // &str is slice, is reference to vector it is fat pointer
     // &str you can't modify string slice
     let cource = "rust --0";
+    println!("test {} explicit return {}", cal_plus(2, 2), cal_plus_with_explicit_return(3, 1))
 }
 
 fn first_word(s: &String) -> usize {
@@ -60,4 +61,14 @@ fn first_word(s: &String) -> usize {
         }
     }
     s.len()
+}
+
+// in function with implict return
+fn cal_plus(ab: i16, cd: i16) -> i16 {
+    ab + cd
+}
+
+// same function with explicit return
+fn cal_plus_with_explicit_return(ab: i16, cd: i16) -> i16 {
+    return ab + cd
 }
