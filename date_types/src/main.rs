@@ -41,6 +41,15 @@ fn main() {
     let hello = String::from("hello world");
     let word = first_word(&hello);
     println!("word {}", word);
+
+    // differences between String and &str
+
+    // String is like String object in java you have methods to help in work and you can modify value
+    let full_name = String::from("full name");
+
+    // &str is slice, is reference to vector it is fat pointer
+    // &str you can't modify string slice
+    let cource = "rust --0";
 }
 
 fn first_word(s: &String) -> usize {
