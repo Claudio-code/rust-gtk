@@ -9,6 +9,11 @@ struct User {
 #[derive(Debug)]
 struct Coordinates(i32, i32, i32);
 
+
+struct ExampleRef<'a> {
+    text: &'a str
+}
+
 #[derive(Debug)]
 struct Square {
     width: u32,
@@ -45,6 +50,9 @@ fn main() {
     print_refs(&four, &nine);
     pass_x(&four, &nine);
 
+    let text = String::from("buy");
+    let exampleRef = ExampleRef{text: &text };
+    println!("text in ref {}", exampleRef.text);
 }
 
 fn print_refs<'a, 'b>(x: &'a i32, y: &'b i32) {
