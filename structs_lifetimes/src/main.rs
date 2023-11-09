@@ -53,6 +53,8 @@ fn main() {
     let text = String::from("buy");
     let exampleRef = ExampleRef{text: &text };
     println!("text in ref {}", exampleRef.text);
+
+    let s: &'static str = "I have a static lifetime";
 }
 
 fn print_refs<'a, 'b>(x: &'a i32, y: &'b i32) {
