@@ -44,11 +44,23 @@ fn main() {
     let x: i32 = 23;
     let y: Option<i32> = Some(7);
     let result = plus_one(y);
-    let resultNone = plus_one(None);
+    let result_none = plus_one(None);
 
-    println!("{:?} | {:?}", result, resultNone);
+    println!("{:?} | {:?}", result, result_none);
     what_letter("A");
     what_letter("W");
+
+    let value = 21;
+    match value {
+        10..=21 => println!("ok match"),
+        _ => println!("Nop"),
+    };
+
+    let some_value = Some(132);
+    match some_value {
+        Some(132) => println!("here"),
+        _ => println!("default"),
+    };
 }
 
 fn plus_one(x: Option<i32>) -> Option<i32> {
