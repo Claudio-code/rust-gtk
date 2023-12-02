@@ -1,0 +1,13 @@
+[package]
+name = "gtk-make-async-request"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ashpd = { version = "0.6.7", features = ["gtk4"] }
+async-channel = "2.1.1"
+gtk = { version = "0.7.3", package = "gtk4", features = ["v4_8"] }
+reqwest = { version = "0.11", default-features = false, features = ["rustls-tls"] }
+tokio = { version = "1", features = ["rt-multi-thread"] }
