@@ -1,4 +1,5 @@
-use gtk::prelude::*;
+use gtk::glib::PropertyGet;
+use gtk::{prelude::*, CustomFilter, Filter, ListView, PositionType, Widget};
 use gtk::{
     glib, Application, ApplicationWindow, Label, ListBox, PolicyType, ScrolledWindow,
 };
@@ -28,6 +29,25 @@ fn build_ui(app: &Application) {
         .min_content_width(360)
         .child(&list_box)
         .build();
+
+    scrolled_window.connect_edge_reached(move | mut scroll, position| {
+        // println!("{}", scroll.vadjustment().upper());
+        if PositionType::Bottom == position {
+            println!("No fim da lista");
+            let list_box_clone = list_box.clone();
+            for number in 0..=100 {
+                let mut label_name = String::from("label = ");
+                label_name.push_str(&number.to_string());
+                let label = Label::new(Some(&label_name));
+                list_box_clone.append(&label);
+            }
+            scroll.set_child(Option::Some(&list_box_clone));
+        }
+        
+        if PositionType::Top == position {
+            println!("No inicio da lista");
+        }
+    });
 
     let window = ApplicationWindow::builder()
         .application(app)
