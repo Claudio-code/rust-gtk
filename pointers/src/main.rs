@@ -1,8 +1,9 @@
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
 
 fn main() {
     box_deferency();
     rc_and_arc();
+    ref_cell();
 }
 
 fn box_deferency() {
@@ -33,4 +34,24 @@ fn rc_and_arc() {
     // Compare String objects refereces like object.equals in Java
     // But trait net extend PartialEq
     assert!(s1 == s2 && s1 == s3);
+}
+
+#[derive(Debug)]
+struct Flag {
+    is_true: RefCell<bool>,
+}
+
+fn ref_cell() {
+    let flag = Flag {
+        is_true: RefCell::new(true),
+    };
+    // borrow returns Ref<T>
+    // borrow_mut return RefMut<T>
+
+    // let referece = flag.is_true.borrow();
+    // println!("{}", referece);
+
+    let mut referece_mut = flag.is_true.borrow_mut();
+    *referece_mut = false; // deference first to access inside
+    println!("{}", referece_mut);
 }
