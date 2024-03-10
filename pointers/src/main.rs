@@ -1,4 +1,8 @@
 fn main() {
+    box_deferency();
+}
+
+fn box_deferency() {
     let tuple = (12, "apps"); // create on the stack
     let tuple_box = Box::new(tuple); // create referece pointer on the heap, but was stored on the stack
     println!("{:?}", tuple_box);
