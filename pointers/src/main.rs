@@ -1,5 +1,8 @@
+use std::rc::Rc;
+
 fn main() {
     box_deferency();
+    rc_and_arc();
 }
 
 fn box_deferency() {
@@ -18,4 +21,16 @@ fn box_deferency() {
     assert_eq!(5, *y);
 
     println!("{:?}", y);
+}
+
+fn rc_and_arc() {
+    let s1 = Rc::new(String::from("Pointer"));
+    let s2 = s1.clone();
+    let s3 = s2.clone();
+
+    println!("{}, {}, {}", s1, s2, s3);
+
+    // Compare String objects refereces like object.equals in Java
+    // But trait net extend PartialEq
+    assert!(s1 == s2 && s1 == s3);
 }
