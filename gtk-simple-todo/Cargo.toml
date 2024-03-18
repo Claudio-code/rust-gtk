@@ -1,3 +1,4 @@
+workspace = { members = ["gtk-simple-todo-two"] }
 [package]
 name = "gtk-simple-todo"
 version = "0.1.0"
@@ -6,7 +7,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-gtk = { version = "0.7.3", package = "gtk4", features = ["v4_8"] }
+gtk = { version = "0.7.3", package = "gtk4", features = ["v4_8", "v4_12"] }
 
 [build-dependencies]
 glib-build-tools = "0.18.0"
